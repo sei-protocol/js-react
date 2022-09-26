@@ -4,14 +4,14 @@ or
 ```npm install @sei/react```
 
 ## Usage
-```import { useWallet } from '@sei/react```
+```import { useWallet } from '@sei/react``` 
 
 # Hooks
-| Hook        | Params                                       |
-|-------------|----------------------------------------------|
-| useWallet   | (inputWallet: string, autoConnect?: boolean) |
+| Hook                    | Params                                       |
+|-------------------------|----------------------------------------------|
+| [useWallet](#usewallet) | (inputWallet: string, autoConnect?: boolean) |
 
-## useWallet response
+## useWallet
 
 | Property         | Type               | Description                                              |
 |------------------|--------------------|----------------------------------------------------------|

@@ -1,7 +1,7 @@
 {
   "name": "@sei-js/react",
-  "version": "1.0.5",
-  "description": "A react sei wallet provider.",
+  "version": "1.0.6",
+  "description": "A react helper library for Sei.",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "scripts": {
