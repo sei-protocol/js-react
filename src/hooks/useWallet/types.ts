@@ -1,4 +1,4 @@
-export type WalletWindowKey = "keplr" | "leap" | "cosmostation" | "falcon";
+export type WalletWindowKey = "keplr" | "leap";
 
 export type SupportedWallet = {
   windowKey: WalletWindowKey;

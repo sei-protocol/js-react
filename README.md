@@ -11,7 +11,7 @@ or
 |-------------|----------------------------------------------|
 | useWallet   | (inputWallet: string, autoConnect?: boolean) |
 
-## useWallet
+## useWallet response
 
 | Property         | Type               | Description                                              |
 |------------------|--------------------|----------------------------------------------------------|

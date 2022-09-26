@@ -2,8 +2,6 @@ declare global {
     interface Window {
         keplr: any;
         leap: any;
-        falcon: any;
-        cosmostation: any;
     }
 }
 
