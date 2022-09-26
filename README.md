@@ -6,6 +6,8 @@ or
 ## Usage
 ```import { useWallet } from '@sei/react``` 
 
+```const { connectedWallet, offlineSigner } = useWallet("leap", true)``` 
+
 # Hooks
 | Hook                    | Params                                       |
 |-------------------------|----------------------------------------------|
