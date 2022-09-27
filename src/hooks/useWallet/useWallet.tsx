@@ -1,7 +1,11 @@
 import React, {useCallback, useEffect, useMemo, useState} from "react";
-import {WalletWindowKey, UseWallet} from "./types";
-import {SUPPORTED_WALLETS} from "./supportedWallets";
-import {KEPLR_CHAIN_SUGGEST} from "./config";
+import {UseWallet} from "./types";
+import {
+    connect as connectWallet,
+    SUPPORTED_WALLETS,
+    WalletAccount,
+    WalletWindowKey
+} from "@sei-js/core/wallet";
 
 
 const useWallet: (inputWallet: WalletWindowKey, autoConnect?: boolean) => UseWallet = (
@@ -9,7 +13,7 @@ const useWallet: (inputWallet: WalletWindowKey, autoConnect?: boolean) => UseWal
     autoConnect = false
 ) => {
     const [offlineSigner, setOfflineSigner] = useState<any | undefined>();
-    const [accounts, setAccounts] = useState([]);
+    const [accounts, setAccounts] = useState<WalletAccount[]>([]);
     const [connectedWallet, setConnectedWallet] = useState<WalletWindowKey | undefined>();
 
     const installedWallets = useMemo(
@@ -21,20 +25,13 @@ const useWallet: (inputWallet: WalletWindowKey, autoConnect?: boolean) => UseWal
     );
 
     const connect = useCallback(async () => {
-        switch (inputWallet) {
-            case "keplr":
-                await window.keplr.experimentalSuggestChain(KEPLR_CHAIN_SUGGEST);
-                break;
-
-        }
-        const getInfo = async () => {
-            const offlineSigner = await window[inputWallet].getOfflineSigner('atlantic-1');
-            const accounts = await offlineSigner.getAccounts();
-
+        const initConnection = async () => {
+            const {offlineSigner, accounts} = await connectWallet(inputWallet).then()
             setOfflineSigner(offlineSigner);
             setAccounts(accounts);
         };
-        getInfo().then();
+
+        initConnection().then();
     }, [])
 
     const disconnect = useCallback(() => {

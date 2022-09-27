@@ -1,8 +1,4 @@
-export type WalletWindowKey = "keplr" | "leap";
-
-export type SupportedWallet = {
-  windowKey: WalletWindowKey;
-};
+import {WalletAccount, WalletWindowKey} from "@sei-js/core/wallet";
 
 export type UseWallet = {
   connectedWallet?: WalletWindowKey;
@@ -12,11 +8,5 @@ export type UseWallet = {
   installedWallets: WalletWindowKey[];
   error?: string;
   offlineSigner?: any;
-  accounts?: Account[];
-};
-
-export type Account = {
-  address: string;
-  algo: string;
-  pubkey: Uint8Array;
+  accounts?: WalletAccount[];
 };

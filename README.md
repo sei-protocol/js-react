@@ -1,12 +1,11 @@
+# @sei-js/react
+A set of React functions for [@sei-js/core](https://www.npmjs.com/package/@sei-js/core) written in Typescript
+
 ## Installation
 ```yarn add @sei-js/react```
 or
 ```npm install @sei/react```
 
-## Usage
-```import { useWallet } from '@sei/react``` 
-
-```const { connectedWallet, offlineSigner } = useWallet("leap", true)``` 
 
 # Hooks
 | Hook                    | Params                                       |
@@ -14,6 +13,8 @@ or
 | [useWallet](#usewallet) | (inputWallet: string, autoConnect?: boolean) |
 
 ## useWallet
+
+```const { connectedWallet, offlineSigner } = useWallet("leap", true)```
 
 | Property         | Type               | Description                                              |
 |------------------|--------------------|----------------------------------------------------------|

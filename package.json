@@ -1,12 +1,12 @@
 {
   "name": "@sei-js/react",
-  "version": "1.0.8",
-  "description": "A react helper library for Sei.",
+  "version": "1.0.9",
+  "description": "A set of React helpers for @sei-js/core",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "scripts": {
-    "deploy": "npm publish",
-    "predeploy": "tsc"
+    "deploy": "cd lib && npm publish --access public",
+    "predeploy": "tsc && cp package.json lib"
   },
   "repository": {
     "type": "git",
@@ -36,5 +36,8 @@
   ],
   "exports": {
     ".": "./lib"
+  },
+  "dependencies": {
+    "@sei-js/core": "^1.0.11"
   }
 }
