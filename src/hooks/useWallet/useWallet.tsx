@@ -3,8 +3,7 @@ import {UseWallet} from "./types";
 import {
     connect as connectWallet,
     SUPPORTED_WALLETS,
-    WalletAccount,
-    WalletWindowKey
+    WalletAccount, WalletWindowKey,
 } from "@sei-js/core/wallet";
 
 
