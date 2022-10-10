@@ -8,9 +8,12 @@ or
 
 
 # Hooks
-| Hook                    | Params                                       |
-|-------------------------|----------------------------------------------|
-| [useWallet](#usewallet) | (inputWallet: string, autoConnect?: boolean) |
+| Hook                                  | Params                                         |
+|---------------------------------------|------------------------------------------------|
+| [useWallet](#usewallet)               | (inputWallet: string, autoConnect?: boolean)   |
+| [useClient](#Clients)                 | (rpcAddress: string, offlineSigner: any)       |
+| [useSigningClient](#useSigningClient) | (rpcAddress: string, offlineSigner: any)       |
+| [useQueryClient](#useQueryClient)     | (rpcAddress: string)                           |  
 
 ## useWallet
 
@@ -26,4 +29,28 @@ or
 | error            | string?            | Error message                                            |
 | offlineSigner    | object?            | The offline signer associated with the connected  wallet |
 | accounts         | object[]?          | The accounts associated with the connected wallet        |
+
+## Clients
+Option A: Both signing and query clients in one
+
+```const { signingClient, queryClient } = useClient("rpc_address", offlineSigner)```
+
+Option B: Individual clients
+### useSigningClient
+
+```const { signingClient, isLoading } = useSigningClient("rpc_address", offlineSigner)```
+
+| Property         | Type                   | Description                                             |
+|------------------|------------------------|---------------------------------------------------------|
+| signingClient    | StargateSigningClient? | A stargate signing client.                              |
+| isLoading        | boolean                | Boolean value for when the initial loading is happening |
+
+### useQueryClient
+
+```const { queryClient, isLoading } = useQueryClient("rpc_address")```
+
+| Property    | Type    | Description                                             |
+|-------------|---------|---------------------------------------------------------|
+| queryCleint | any?    | A query client for Sei.                                 |
+| isLoading   | boolean | Boolean value for when the initial loading is happening |
 
