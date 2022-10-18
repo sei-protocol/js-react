@@ -1,12 +1,12 @@
 {
   "name": "@sei-js/react",
-  "version": "1.0.25",
+  "version": "1.0.26",
   "description": "A set of React helpers for @sei-js/core",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "scripts": {
     "deploy": "cd lib && npm publish --access public",
-    "predeploy": "tsc && cp package.json lib"
+    "predeploy": "tsc && cp package.json lib && cp README.md lib"
   },
   "repository": {
     "type": "git",
