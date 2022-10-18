@@ -3,8 +3,7 @@ import {UseWallet} from "./types";
 import {
     connect as connectWallet,
     SUPPORTED_WALLETS,
-    WalletAccount,
-    WalletWindowKey
+    WalletAccount, WalletWindowKey,
 } from "@sei-js/core/wallet";
 
 
@@ -32,7 +31,7 @@ const useWallet: (inputWallet: WalletWindowKey, autoConnect?: boolean) => UseWal
         };
 
         initConnection().then();
-    }, [])
+    }, [inputWallet])
 
     const disconnect = useCallback(() => {
         setConnectedWallet(undefined)

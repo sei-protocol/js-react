@@ -1,12 +1,12 @@
 {
   "name": "@sei-js/react",
-  "version": "1.0.10",
+  "version": "1.0.26",
   "description": "A set of React helpers for @sei-js/core",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "scripts": {
     "deploy": "cd lib && npm publish --access public",
-    "predeploy": "tsc && cp package.json lib"
+    "predeploy": "tsc && cp package.json lib && cp README.md lib"
   },
   "repository": {
     "type": "git",
@@ -14,9 +14,7 @@
   },
   "keywords": [
     "sei",
-    "react",
-    "wallet",
-    "provider"
+    "react"
   ],
   "author": "Carson Aberle",
   "license": "MIT",
@@ -26,18 +24,16 @@
   "homepage": "https://github.com/sei-protocol/js-react#readme",
   "devDependencies": {
     "@types/react": "^17.0.1",
+    "prettier": "^2.7.1",
     "react": "^17.0.1",
     "typescript": "^4.8.3"
   },
-  "files": [
-    "lib",
-    "lib/*",
-    "lib/index"
-  ],
-  "exports": {
-    ".": "./lib"
-  },
   "dependencies": {
-    "@sei-js/core": "^1.0.11"
-  }
+    "@sei-js/core": "^1.0.26"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not op_mini all"
+  ]
 }

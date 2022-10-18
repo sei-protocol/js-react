@@ -8,7 +8,8 @@
     "jsx": "react",
     "allowSyntheticDefaultImports": true,
     "skipLibCheck": true,
-    "noImplicitAny": false
+    "noImplicitAny": false,
+    "lib": ["DOM", "ES6", "DOM.Iterable", "ScriptHost", "ES2016.Array.Include"]
   },
   "include": [
     "src"
