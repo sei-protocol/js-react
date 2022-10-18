@@ -31,7 +31,7 @@ const useWallet: (inputWallet: WalletWindowKey, autoConnect?: boolean) => UseWal
         };
 
         initConnection().then();
-    }, [])
+    }, [inputWallet])
 
     const disconnect = useCallback(() => {
         setConnectedWallet(undefined)

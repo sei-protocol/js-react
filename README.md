@@ -8,10 +8,11 @@ or
 
 
 # Hooks
-| Hook                                  | Params                                         |
-|---------------------------------------|------------------------------------------------|
-| [useWallet](#usewallet)               | (inputWallet: string, autoConnect?: boolean)   |
-| [useSigningClient](#useSigningClient) | (rpcAddress: string, offlineSigner: any)       |
+| Hook                                  | Params                                       |
+|---------------------------------------|----------------------------------------------|
+| [useWallet](#usewallet)               | (inputWallet: string, autoConnect?: boolean) |
+| [useQueryClient](#useQueryClient)     | (rpcAddress: string)                         |
+| [useSigningClient](#useSigningClient) | (rpcAddress: string, offlineSigner: any)     |
 
 ## useWallet
 
@@ -27,6 +28,15 @@ or
 | error            | string?            | Error message                                            |
 | offlineSigner    | object?            | The offline signer associated with the connected  wallet |
 | accounts         | object[]?          | The accounts associated with the connected wallet        |
+
+## useQueryClient
+
+```const { queryClient, isLoading } = useQueryCleint("rpc_address")```
+
+| Property    | Type                   | Description                                             |
+|-------------|------------------------|---------------------------------------------------------|
+| queryClient | StargateSigningClient? | A stargate signing client.                              |
+| isLoading   | boolean                | Boolean value for when the initial loading is happening |
 
 ## useSigningClient
 
