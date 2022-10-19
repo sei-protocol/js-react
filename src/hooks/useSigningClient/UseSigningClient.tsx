@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getSigningClient } from '@sei-js/core/signingClient';
 
-const useSigningClient = (rpcAddress: string, offlineSigner: any) => {
+const useSigningClient = (rpcAddress: string, offlineSigner?: any) => {
 	const [isLoading, setIsLoading] = useState<boolean>(true);
 	const [signingClient, setSigningClient] = useState<any>();
 
@@ -10,6 +10,7 @@ const useSigningClient = (rpcAddress: string, offlineSigner: any) => {
 			return await getSigningClient(rpcAddress, offlineSigner);
 		};
 
+		if(!offlineSigner) return;
 		setIsLoading(true);
 
 		getClient().then((client) => {
