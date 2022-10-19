@@ -1,6 +1,6 @@
 {
   "name": "@sei-js/react",
-  "version": "1.0.29",
+  "version": "1.0.30",
   "description": "A set of React helpers for @sei-js/core",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
