@@ -7,7 +7,8 @@ import {
 } from "@sei-js/core/wallet";
 
 
-const useWallet: (inputWallet: WalletWindowKey, autoConnect?: boolean) => UseWallet = (
+const useWallet: (window: any, inputWallet: WalletWindowKey, autoConnect?: boolean) => UseWallet = (
+    window,
     inputWallet,
     autoConnect = false
 ) => {
