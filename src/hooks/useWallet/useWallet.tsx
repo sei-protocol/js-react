@@ -17,10 +17,10 @@ const useWallet: (inputWallet: WalletWindowKey, autoConnect?: boolean) => UseWal
 
     const installedWallets = useMemo(
         () =>
-            SUPPORTED_WALLETS.filter((wallet) => window[wallet.windowKey]).map(
+            window ? SUPPORTED_WALLETS.filter((wallet) => window?.[wallet.windowKey]).map(
                 (wallet) => wallet.windowKey
-            ),
-        []
+            ) : [],
+        [window]
     );
 
     const connect = useCallback(async () => {
