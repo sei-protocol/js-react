@@ -35,7 +35,7 @@
     "rimraf": "^3.0.2"
   },
   "dependencies": {
-    "@sei-js/core": "^1.0.33"
+    "@sei-js/core": "^1.0.34"
   },
   "browserslist": [
     ">0.2%",
