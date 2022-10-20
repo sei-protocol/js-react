@@ -26,7 +26,9 @@ const useWallet: (window: any, inputWallet: WalletWindowKey, autoConnect?: boole
 
     const connect = useCallback(async () => {
         const initConnection = async () => {
-            const {offlineSigner, accounts} = await connectWallet(inputWallet).then()
+            const ConnectWallet = await connectWallet(inputWallet).then()
+            if(!ConnectWallet) return;
+            const {offlineSigner, accounts} = ConnectWallet
             setOfflineSigner(offlineSigner);
             setAccounts(accounts);
         };
