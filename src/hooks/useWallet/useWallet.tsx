@@ -22,7 +22,7 @@ const useWallet: (window: any, inputWallet: WalletWindowKey, autoConnect?: boole
 			setConnectedWallet(inputWallet);
 		};
 
-		initConnection().then();
+		if (inputWallet) initConnection().then();
 	}, [inputWallet]);
 
 	const disconnect = useCallback(() => {
@@ -32,10 +32,10 @@ const useWallet: (window: any, inputWallet: WalletWindowKey, autoConnect?: boole
 	}, []);
 
 	useEffect(() => {
-		if (autoConnect) {
+		if (autoConnect && inputWallet) {
 			connect().then(() => setConnectedWallet(inputWallet));
 		}
-	}, [autoConnect]);
+	}, [autoConnect, inputWallet]);
 
 	if (!inputWallet)
 		return {
