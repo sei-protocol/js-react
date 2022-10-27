@@ -13,16 +13,18 @@ const useWallet: (window: any, inputWallet: WalletWindowKey, autoConnect?: boole
 	);
 
 	const connect = useCallback(async () => {
-		const initConnection = async () => {
-			const ConnectWallet = await connectWallet(inputWallet).then();
-			if (!ConnectWallet) return;
-			const { offlineSigner, accounts } = ConnectWallet;
-			setOfflineSigner(offlineSigner);
-			setAccounts(accounts);
-			setConnectedWallet(inputWallet);
-		};
+		try {
+			const initConnection = async () => {
+				const ConnectWallet = await connectWallet(inputWallet);
+				if (!ConnectWallet) return;
+				const { offlineSigner, accounts } = ConnectWallet;
+				setOfflineSigner(offlineSigner);
+				setAccounts(accounts);
+				setConnectedWallet(inputWallet);
+			};
 
-		if (inputWallet) initConnection().then();
+			if (inputWallet) initConnection().then();
+		} catch {}
 	}, [inputWallet]);
 
 	const disconnect = useCallback(() => {
