@@ -1,8 +1,14 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { UseWallet } from './types';
 import { connect as connectWallet, SUPPORTED_WALLETS, WalletAccount, WalletWindowKey } from '@sei-js/core/wallet';
+import { useRecoilValue } from 'recoil';
+import { chainIdSelector, restUrlSelector, rpcUrlSelector } from '../../selectors/chainConfiguration';
 
 const useWallet: (window: any, inputWallet: WalletWindowKey, autoConnect?: boolean) => UseWallet = (window, inputWallet, autoConnect = false) => {
+	const chainId = useRecoilValue(chainIdSelector);
+	const restUrl = useRecoilValue(restUrlSelector);
+	const rpcUrl = useRecoilValue(rpcUrlSelector);
+
 	const [offlineSigner, setOfflineSigner] = useState<any | undefined>();
 	const [accounts, setAccounts] = useState<WalletAccount[]>([]);
 	const [connectedWallet, setConnectedWallet] = useState<WalletWindowKey | undefined>();
@@ -15,7 +21,7 @@ const useWallet: (window: any, inputWallet: WalletWindowKey, autoConnect?: boole
 	const connect = useCallback(async () => {
 		try {
 			const initConnection = async () => {
-				const ConnectWallet = await connectWallet(inputWallet);
+				const ConnectWallet = await connectWallet(inputWallet, chainId, restUrl, rpcUrl);
 				if (!ConnectWallet) return;
 				const { offlineSigner, accounts } = ConnectWallet;
 				setOfflineSigner(offlineSigner);
