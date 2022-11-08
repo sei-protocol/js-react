@@ -12,6 +12,8 @@ export type UseWallet = {
   connect: () => Promise<any>;
   disconnect: () => void;
   chainId: string;
+  restUrl: string;
+  rpcUrl: string;
   supportedWallets: WalletWindowKey[];
   installedWallets: WalletWindowKey[];
   error?: string;

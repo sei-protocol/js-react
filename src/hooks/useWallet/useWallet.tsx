@@ -72,7 +72,9 @@ const useWallet: (window: any, walletOptions: UseWalletOptions) => UseWallet = (
 			error: 'No wallet defined.',
 			supportedWallets: SUPPORTED_WALLETS.map((wallet) => wallet.windowKey),
 			installedWallets,
-			chainId
+			chainId,
+			restUrl,
+			rpcUrl
 		};
 
 	return {
@@ -83,7 +85,9 @@ const useWallet: (window: any, walletOptions: UseWalletOptions) => UseWallet = (
 		offlineSigner,
 		accounts,
 		connectedWallet,
-		chainId
+		chainId,
+		restUrl,
+		rpcUrl
 	};
 };
 
