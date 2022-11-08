@@ -1,13 +1,33 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { UseWallet } from './types';
+import { UseWallet, UseWalletOptions } from './types';
 import { connect as connectWallet, SUPPORTED_WALLETS, WalletAccount, WalletWindowKey } from '@sei-js/core/wallet';
-import { useRecoilValue } from 'recoil';
-import { chainIdSelector, restUrlSelector, rpcUrlSelector } from '../../selectors/chainConfiguration';
 
-const useWallet: (window: any, inputWallet: WalletWindowKey, autoConnect?: boolean) => UseWallet = (window, inputWallet, autoConnect = false) => {
-	const chainId = useRecoilValue(chainIdSelector);
-	const restUrl = useRecoilValue(restUrlSelector);
-	const rpcUrl = useRecoilValue(rpcUrlSelector);
+const useWallet: (window: any, walletOptions: UseWalletOptions) => UseWallet = (window, walletOptions) => {
+	const { inputWallet, autoConnect } = walletOptions;
+
+	const chainId = useMemo(() => {
+		const { chainConfiguration } = walletOptions;
+		if(chainConfiguration === 'testnet') return 'atlantic-1'
+		if(chainConfiguration === 'devnet') return 'sei-devnet-1'
+		return chainConfiguration.chainId;
+
+	}, [walletOptions.chainConfiguration])
+
+	const restUrl = useMemo(() => {
+		const { chainConfiguration } = walletOptions;
+		if(chainConfiguration === 'testnet') return 'https://sei-chain-incentivized.com/sei-chain-app'
+		if(chainConfiguration === 'devnet') return 'https://sei-chain-devnet.com/sei-chain-app'
+		return chainConfiguration.restUrl;
+
+	}, [walletOptions.chainConfiguration])
+
+	const rpcUrl = useMemo(() => {
+		const { chainConfiguration } = walletOptions;
+		if(chainConfiguration === 'testnet') return 'https://sei-chain-incentivized.com/sei-chain-tm/'
+		if(chainConfiguration === 'devnet') return 'https://sei-chain-devnet.com/sei-chain-tm/'
+		return chainConfiguration.restUrl;
+
+	}, [walletOptions.chainConfiguration])
 
 	const [offlineSigner, setOfflineSigner] = useState<any | undefined>();
 	const [accounts, setAccounts] = useState<WalletAccount[]>([]);
@@ -51,7 +71,8 @@ const useWallet: (window: any, inputWallet: WalletWindowKey, autoConnect?: boole
 			disconnect,
 			error: 'No wallet defined.',
 			supportedWallets: SUPPORTED_WALLETS.map((wallet) => wallet.windowKey),
-			installedWallets
+			installedWallets,
+			chainId
 		};
 
 	return {
@@ -61,7 +82,8 @@ const useWallet: (window: any, inputWallet: WalletWindowKey, autoConnect?: boole
 		installedWallets,
 		offlineSigner,
 		accounts,
-		connectedWallet
+		connectedWallet,
+		chainId
 	};
 };
 
