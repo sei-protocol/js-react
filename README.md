@@ -18,16 +18,17 @@ or
 
 ```const { connectedWallet, offlineSigner } = useWallet(window, "leap", true)```
 
-| Property         | Type               | Description                                              |
-|------------------|--------------------|----------------------------------------------------------|
-| connectedWallet  | string?            | The currently connected wallet                           |
-| connect          | () => Promise<any> | Async function to connect to input wallet                |
-| disconnect       | () => void         | Function to disconnect from input wallet                 |
-| supportedWallets | string[]           | List of supported wallets                                |
-| installedWallets | string[]           | List of wallets installed                                |
-| error            | string?            | Error message                                            |
-| offlineSigner    | object?            | The offline signer associated with the connected  wallet |
-| accounts         | object[]?          | The accounts associated with the connected wallet        |
+| Property         | Type                 | Description                                              |
+|------------------|----------------------|----------------------------------------------------------|
+| connectedWallet  | string?              | The currently connected wallet                           |
+| connect          | () => Promise<any>   | Async function to connect to input wallet                |
+| disconnect       | () => void           | Function to disconnect from input wallet                 |
+| supportedWallets | string[]             | List of supported wallets                                |
+| installedWallets | string[]             | List of wallets installed                                |
+| error            | string?              | Error message                                            |
+| chainId          | string               | Sei chain id                                             |
+| offlineSigner    | object?              | The offline signer associated with the connected  wallet |
+| accounts         | object[]?            | The accounts associated with the connected wallet        |
 
 ## useQueryClient
 
