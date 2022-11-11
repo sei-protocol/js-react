@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import { getQueryClient } from '@sei-js/core/queryClient';
 
-const useQueryClient = (rpcAddress: string) => {
+const useQueryClient = (restUrl: string) => {
 	const [isLoading, setIsLoading] = useState<boolean>(true);
 	const [queryClient, setQueryClient] = useState<Awaited<ReturnType<typeof getQueryClient>>>();
 
 	useEffect(() => {
 		const getClient = async () => {
-			return await getQueryClient(rpcAddress);
+			return await getQueryClient(restUrl);
 		};
 
 		setIsLoading(true);
@@ -16,7 +16,7 @@ const useQueryClient = (rpcAddress: string) => {
 			setQueryClient(client);
 			setIsLoading(false);
 		});
-	}, [rpcAddress]);
+	}, [restUrl]);
 
 	return { queryClient, isLoading };
 };
