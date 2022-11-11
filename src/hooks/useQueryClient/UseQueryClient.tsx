@@ -3,8 +3,7 @@ import { getQueryClient } from '@sei-js/core/queryClient';
 
 const useQueryClient = (rpcAddress: string) => {
 	const [isLoading, setIsLoading] = useState<boolean>(true);
-	const [queryClient, setQueryClient] = useState<any>();
-
+	const [queryClient, setQueryClient] = useState<Awaited<ReturnType<typeof getQueryClient>>>();
 
 	useEffect(() => {
 		const getClient = async () => {
