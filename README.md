@@ -32,7 +32,7 @@ or
 
 ## useQueryClient
 
-```const { queryClient, isLoading } = useQueryCleint("rpc_address")```
+```const { queryClient, isLoading } = useQueryCleint("rest_url")```
 
 | Property    | Type                   | Description                                             |
 |-------------|------------------------|---------------------------------------------------------|
