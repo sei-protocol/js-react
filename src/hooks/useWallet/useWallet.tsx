@@ -1,33 +1,30 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { UseWallet, UseWalletOptions } from './types';
-import { connect as connectWallet, SUPPORTED_WALLETS, WalletAccount, WalletWindowKey } from '@sei-js/core/wallet';
+import { SUPPORTED_WALLETS, WalletAccount, connect as connectWallet, WalletWindowKey } from '@sei-js/core/wallet';
 
 const useWallet: (window: any, walletOptions: UseWalletOptions) => UseWallet = (window, walletOptions) => {
 	const { inputWallet, autoConnect } = walletOptions;
 
 	const chainId = useMemo(() => {
 		const { chainConfiguration } = walletOptions;
-		if(chainConfiguration === 'testnet') return 'atlantic-1'
-		if(chainConfiguration === 'devnet') return 'sei-devnet-1'
+		if (chainConfiguration === 'testnet') return 'atlantic-1';
+		if (chainConfiguration === 'devnet') return 'sei-devnet-1';
 		return chainConfiguration.chainId;
-
-	}, [walletOptions.chainConfiguration])
+	}, [walletOptions.chainConfiguration]);
 
 	const restUrl = useMemo(() => {
 		const { chainConfiguration } = walletOptions;
-		if(chainConfiguration === 'testnet') return 'https://sei-chain-incentivized.com/sei-chain-app'
-		if(chainConfiguration === 'devnet') return 'https://sei-chain-devnet.com/sei-chain-app'
+		if (chainConfiguration === 'testnet') return 'https://sei-chain-incentivized.com/sei-chain-app';
+		if (chainConfiguration === 'devnet') return 'https://sei-chain-devnet.com/sei-chain-app';
 		return chainConfiguration.restUrl;
-
-	}, [walletOptions.chainConfiguration])
+	}, [walletOptions.chainConfiguration]);
 
 	const rpcUrl = useMemo(() => {
 		const { chainConfiguration } = walletOptions;
-		if(chainConfiguration === 'testnet') return 'https://sei-chain-incentivized.com/sei-chain-tm/'
-		if(chainConfiguration === 'devnet') return 'https://sei-chain-devnet.com/sei-chain-tm/'
+		if (chainConfiguration === 'testnet') return 'https://sei-chain-incentivized.com/sei-chain-tm/';
+		if (chainConfiguration === 'devnet') return 'https://sei-chain-devnet.com/sei-chain-tm/';
 		return chainConfiguration.restUrl;
-
-	}, [walletOptions.chainConfiguration])
+	}, [walletOptions.chainConfiguration]);
 
 	const [offlineSigner, setOfflineSigner] = useState<any | undefined>();
 	const [accounts, setAccounts] = useState<WalletAccount[]>([]);
@@ -50,7 +47,9 @@ const useWallet: (window: any, walletOptions: UseWalletOptions) => UseWallet = (
 			};
 
 			if (inputWallet) initConnection().then();
-		} catch {}
+		} catch {
+			console.log('error!');
+		}
 	}, [inputWallet]);
 
 	const disconnect = useCallback(() => {

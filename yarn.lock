@@ -355,10 +355,10 @@
   resolved "https://registry.npmjs.org/@protobufjs/utf8/-/utf8-1.1.0.tgz#a777360b5b39a1a2e5106f8e858f2fd2d060c570"
   integrity sha512-Vvn3zZrhQZkkBE8LSuW3em98c0FwgO4nxzv6OdSxPKJIEKY2bGbHn+mhGIPerzI4twdxaP8/0+06HBpwf345Lw==
 
-"@sei-js/core@^1.0.38":
-  version "1.0.38"
-  resolved "https://registry.npmjs.org/@sei-js/core/-/core-1.0.38.tgz#f4fc861636d6dff55291435ff7faf9ad92ea1200"
-  integrity sha512-IV1nS+7HYP8zwg0zAM77VG9q7klofv9i7NbMnMd83kAh/9IBz7lKRSzT2ZR+Qj+8ss/gW/nDJ2et3rpTJEyl9w==
+"@sei-js/core@^1.0.39":
+  version "1.0.39"
+  resolved "https://registry.npmjs.org/@sei-js/core/-/core-1.0.39.tgz#b167b6ee3704fd62bcf717827282e061ef1da864"
+  integrity sha512-sagLn8xl7k695zjNAOzx0F6VcA7sWeDKn2fv+KS8HnZm3FoRwdpuPHRRIdQbd//AgISUT/PPkp+OYbTfSEaq2w==
   dependencies:
     "@cosmjs/stargate" "^0.29.0"
     "@sei-js/proto" "^0.0.1"
