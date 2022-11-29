@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.48](https://github.com/sei-protocol/js-react/compare/v1.0.47...v1.0.48) (2022-11-29)
+
 ### [1.0.47](https://github.com/sei-protocol/js-react/compare/v1.0.46...v1.0.47) (2022-11-21)
 
 ### [1.0.46](https://github.com/sei-protocol/js-react/compare/v1.0.45...v1.0.46) (2022-11-17)
