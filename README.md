@@ -8,15 +8,15 @@ or
 
 
 # Hooks
-| Hook                                  | Params                                                    |
-|---------------------------------------|-----------------------------------------------------------|
-| [useWallet](#usewallet)               | (window: any, inputWallet: string, autoConnect?: boolean) |
-| [useQueryClient](#useQueryClient)     | (rpcAddress: string)                                      |
-| [useSigningClient](#useSigningClient) | (rpcAddress: string, offlineSigner: any)                  |
+| Hook                                  | Params                                   |
+|---------------------------------------|------------------------------------------|
+| [useWallet](#usewallet)               | (window: any, config: object)            |
+| [useQueryClient](#useQueryClient)     | (rpcAddress: string)                     |
+| [useSigningClient](#useSigningClient) | (rpcAddress: string, offlineSigner: any) |
 
 ## useWallet
 
-```const { connectedWallet, offlineSigner } = useWallet(window, "leap", true)```
+```const { connectedWallet, offlineSigner } = useWallet(window, { inputWallet: "leap", autoconnect: true, chainConfiguration: 'testnet' })```
 
 | Property         | Type                 | Description                                              |
 |------------------|----------------------|----------------------------------------------------------|
